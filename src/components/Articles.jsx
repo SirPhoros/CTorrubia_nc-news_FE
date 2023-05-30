@@ -3,12 +3,16 @@ import { getArticles } from '../../utils'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
 		getArticles().then(({ articles }) => {
 			setCurrArticles(articles)
+			setIsLoading(false)
 		})
 	}, [])
+
+	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
 		<main className="articlesList">
