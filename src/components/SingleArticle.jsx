@@ -21,7 +21,6 @@ export default function SingleArticle() {
 			return currArticle.map((article) => {
 				//+article_id as it comes as a "string" from useParams. Transforms into number
 				if (article.article_id === +article_id) {
-					console.log('Hello')
 					return { ...article, votes: article.votes + 1 }
 				}
 				return article
