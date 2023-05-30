@@ -37,3 +37,11 @@ export function voteArticle(article_id, num) {
 		}
 	)
 }
+
+export function getTopics() {
+	return NewsApi.get(`/topics`)
+		.then(({ data }) => {
+			return data
+		})
+		.catch((err) => console.log(err))
+}
