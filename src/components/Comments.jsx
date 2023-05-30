@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getCommentsFromArticle } from '../../utils'
+import { getCommentsFromArticle, patchComment } from '../../utils'
 
 export default function Comments(id) {
 	const [comments, setComments] = useState([])
@@ -12,11 +12,53 @@ export default function Comments(id) {
 		})
 	}, [])
 
-	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
+	const upVote = (comment_id) => {
+		setComments((currComments) => {
+			return currComments.map((comment) => {
+				if (comment.comment_id === comment_id) {
+					return { ...comment, votes: comment.votes + 1 }
+				}
+				return comment
+			})
+		})
+		patchComment(comment_id, 1).catch((err) => {
+			console.log(err, '<< API response')
+			setComments((currComments) => {
+				return currComments.map((comment) => {
+					if (comment.comment_id === comment_id) {
+						return { ...comment, votes: comment.votes - 1 }
+					}
+					return comment
+				})
+			})
+		})
+	}
 
-    if (comments.length === 0) return (
-        <p>No comments yet</p>
-    )
+	const downVote = (comment_id) => {
+		setComments((currComments) => {
+			return currComments.map((comment) => {
+				if (comment.comment_id === comment_id) {
+					return { ...comment, votes: comment.votes - 1 }
+				}
+				return comment
+			})
+		})
+		patchComment(comment_id, -1).catch((err) => {
+			console.log(err, '<< API response')
+
+			setComments((currComments) => {
+				return currComments.map((comment) => {
+					if (comment.comment_id === comment_id) {
+						return { ...comment, votes: comment.votes + 1 }
+					}
+					return comment
+				})
+			})
+		})
+	}
+
+	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
+	if (comments.length === 0) return <p>No comments yet</p>
 
 	return (
 		<section className="Comments">
@@ -31,7 +73,23 @@ export default function Comments(id) {
 							<article>
 								<p>{author} commments... </p>
 								<p>"{body}"</p>
-								<p>votes: {votes}</p>
+								<section className="voteBlock">
+									<p id="vote">Current votes: {votes}</p>
+									<button
+										className="upVote"
+										onClick={() => upVote(comment_id)}
+									>
+										{' '}
+										⬆️{' '}
+									</button>
+									<button
+										className="downVote"
+										onClick={() => downVote(comment_id)}
+									>
+										{' '}
+										⬇️{' '}
+									</button>
+								</section>
 							</article>
 						</li>
 					)
