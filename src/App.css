@@ -5,7 +5,20 @@
 	text-align: center;
 }
 
+.nav {
+	background-color: aqua;
+	border: solid 1px;
+	position: sticky;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.7rem 2rem;
+	width: auto;
+	top: 0;
+	opacity: 0.5;
+}
+
 .articleItem {
+	margin: 0 0 20px 0;
 	border: 2px solid blue;
 }
 
@@ -14,12 +27,12 @@
 }
 
 .commentsSection {
-  padding: 20px;
+	padding: 20px;
 	border: 2px solid salmon;
-  margin: 20px;
+	margin: 20px;
 }
 
 .comment {
-  margin: 20px 0 20px 0;
+	margin: 20px 0 20px 0;
 	border: 2px double purple;
 }
