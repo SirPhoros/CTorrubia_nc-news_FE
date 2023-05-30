@@ -19,7 +19,14 @@ export default function Items() {
 			<h2>Articles: </h2>
 			<ul>
 				{currArticles.map(
-					({ article_id, title, topic, author, comment_count }) => {
+					({
+						article_id,
+						title,
+						topic,
+						author,
+						comment_count,
+						article_img_url,
+					}) => {
 						return (
 							<li
 								key={article_id}
@@ -27,6 +34,10 @@ export default function Items() {
 							>
 								<article>
 									<h3>{title}</h3>
+									<img
+										src={article_img_url}
+										alt={title}
+									/>
 									<p>{topic}</p>
 									<p>{author}</p>
 									<p>Comments: {comment_count}</p>
