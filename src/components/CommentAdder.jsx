@@ -6,9 +6,6 @@ export default function CommentAdder({ setComments, id }) {
 	const [newComment, setNewComment] = useState('')
 	const [postMsg, setPostMsg] = useState('')
 
-	// console.log(setComments)
-	// console.log(id)
-
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		if (newComment.length === 0) {
