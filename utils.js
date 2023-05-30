@@ -3,8 +3,10 @@ const NewsApi = axios.create({
 	baseURL: `https://nc-news-soloproject-be.onrender.com/api`,
 })
 
-export function getArticles() {
-	return NewsApi.get(`/articles`)
+export function getArticles(params) {
+	if (!params) params = ''
+	console.log(params)
+	return NewsApi.get(`/articles?topic=${params}`)
 		.then(({ data }) => {
 			return data
 		})
