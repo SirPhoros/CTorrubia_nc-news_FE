@@ -22,7 +22,6 @@ export function getArticleById(id) {
 export function getCommentsFromArticle({article_id}) {
 	return NewsApi.get(`/articles/${article_id}/comments`)
 		.then(({data}) => {
-			console.log(data)
 			return data
 		})
 		.catch((err) => console.log(err))

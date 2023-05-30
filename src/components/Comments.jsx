@@ -12,38 +12,31 @@ export default function Comments(id) {
 		})
 	}, [])
 
-    console.log(comments)
-
 	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
 
-    return (
-        <section className="Comments">
-            <h3>Comments: </h3>
-			<ul>
-				{comments.map(
-					({
-						comment_id,
-						author,
-						body,
-						votes,
-					}) => {
-						return (
-							<li
-								key={comment_id}
-								className="comment"
-							>
-								<article>
-									<p>{author} commments... </p>
-									<p>"{body}"</p>
-									<p>votes: {votes}</p>
-								</article>
-							</li>
-						)
-					}
-				)}
-			</ul>
-        </section>
-        
-        )
+    if (comments.length === 0) return (
+        <p>No comments yet</p>
+    )
 
+	return (
+		<section className="Comments">
+			<h3>Comments: </h3>
+			<ul>
+				{comments.map(({ comment_id, author, body, votes }) => {
+					return (
+						<li
+							key={comment_id}
+							className="comment"
+						>
+							<article>
+								<p>{author} commments... </p>
+								<p>"{body}"</p>
+								<p>votes: {votes}</p>
+							</article>
+						</li>
+					)
+				})}
+			</ul>
+		</section>
+	)
 }
