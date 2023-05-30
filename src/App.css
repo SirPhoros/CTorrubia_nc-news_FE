@@ -1,14 +1,22 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
 }
 
 .articleItem {
-  border: 2px solid blue 
+	border: 2px solid blue;
 }
 
 .articlesList {
-  border: 2px solid red 
+	border: 2px solid red;
+}
+
+.commentsSection {
+	border: 2px solid salmon;
+}
+
+.comment {
+	border: 2px double yellow;
 }
