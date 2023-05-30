@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getArticles } from '../../utils'
+import { Link } from 'react-router-dom'
+
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
@@ -33,7 +35,7 @@ export default function Items() {
 								className="articleItem"
 							>
 								<article>
-									<h3>{title}</h3>
+									<h3><Link to={`/articles/${article_id}`}>{title}</Link></h3>
 									<img
 										src={article_img_url}
 										alt={title}

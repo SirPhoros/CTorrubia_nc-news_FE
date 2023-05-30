@@ -10,3 +10,11 @@ export function getArticles() {
 		})
 		.catch((err) => console.log(err))
 }
+
+export function getArticleById(id) {
+	return NewsApi.get(`/articles/${id}`)
+		.then(({data}) => {
+			return data
+		})
+		.catch((err) => console.log(err))
+}
