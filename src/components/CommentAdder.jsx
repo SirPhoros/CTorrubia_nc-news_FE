@@ -14,7 +14,6 @@ export default function CommentAdder({ setComments, id }) {
 		postComment(newComment, id).then((newCommentFromApi) => {
 			setNewComment('')
 			setComments((currComments) => {
-				//Decide to show-up the new comment first, it is more rewarding from an user POV.
 				return [newCommentFromApi, ...currComments]
 			})
 			return setPostMsg('Comment added successfully')
