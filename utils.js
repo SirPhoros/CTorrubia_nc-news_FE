@@ -26,3 +26,17 @@ export function getCommentsFromArticle({ article_id }) {
 		})
 		.catch((err) => console.log(err))
 }
+export const postComment = (newCommentText, { article_id }) => {
+	// assembling the POST body
+	const postBody = {
+		//Hardcoded an username, TODO create an user interace
+		username: 'jessjelly',
+		body: newCommentText,
+	}
+
+	return NewsApi.post(`/articles/${article_id}/comments`, postBody).then(
+		({ data }) => {
+			return data.comment
+		}
+	)
+}

@@ -22,7 +22,7 @@ export default function SingleArticle() {
 		<main className="articleItem">
 			{article.map(({ title, author, body, topic, votes, article_img_url }) => {
 				return (
-					<article>
+					<article key={article_id}>
 						<h2>{title}</h2>
 						<img
 							src={article_img_url}
