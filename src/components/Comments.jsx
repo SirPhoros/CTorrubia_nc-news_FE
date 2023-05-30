@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getCommentsFromArticle } from '../../utils'
+import CommentAdder from './CommentAdder'
 
 export default function Comments(id) {
 	const [comments, setComments] = useState([])
@@ -18,6 +19,10 @@ export default function Comments(id) {
 	return (
 		<section className="Comments">
 			<h3>Comments: </h3>
+			<CommentAdder
+				setComments={setComments}
+				id={id}
+			/>
 			<ul>
 				{comments.map(({ comment_id, author, body, votes }) => {
 					return (

@@ -26,14 +26,28 @@ export function getCommentsFromArticle({ article_id }) {
 		})
 		.catch((err) => console.log(err))
 }
-
-export function voteArticle(article_id, num) {
-	const patchBody = {
-		inc_votes: num,
+export const postComment = (newCommentText, { article_id }) => {
+	// assembling the POST body
+	const postBody = {
+		//Hardcoded an username, TODO create an user interace
+		username: 'jessjelly',
+		body: newCommentText,
 	}
-	return NewsApi.patch(`/articles/${article_id}`, patchBody).then(
+
+	return NewsApi.post(`/articles/${article_id}/comments`, postBody).then(
 		({ data }) => {
-			return data.article
+			return data.comment
 		}
 	)
+
+	export function voteArticle(article_id, num) {
+		const patchBody = {
+			inc_votes: num,
+		}
+		return NewsApi.patch(`/articles/${article_id}`, patchBody).then(
+			({ data }) => {
+				return data.article
+			}
+		)
+	}
 }
