@@ -26,3 +26,15 @@ export function getCommentsFromArticle({ article_id }) {
 		})
 		.catch((err) => console.log(err))
 }
+
+export function voteArticle(article_id, num) {
+	const patchBody = {
+		inc_votes: num,
+	}
+console.log(patchBody)
+	return NewsApi.patch(`/articles/${article_id}`, patchBody).then(
+		({ data }) => {
+			return data.article
+		}
+	)
+}
