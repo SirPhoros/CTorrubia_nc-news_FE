@@ -4,9 +4,13 @@
 	padding: 2rem;
 	text-align: center;
 }
-
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
 .nav {
-	background-color: aqua;
+	background-color: honeydew;
 	border: solid 1px;
 	position: sticky;
 	display: flex;
@@ -14,7 +18,7 @@
 	padding: 0.7rem 2rem;
 	width: auto;
 	top: 0;
-	opacity: 0.5;
+	opacity: 0.8;
 }
 
 .articleItem {
@@ -34,5 +38,5 @@
 
 .comment {
 	margin: 20px 0 20px 0;
-	border: 2px double purple;
+	border: 2px dotted purple;
 }
