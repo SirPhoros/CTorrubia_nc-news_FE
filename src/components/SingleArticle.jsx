@@ -19,7 +19,6 @@ export default function SingleArticle() {
 	const upVote = (article_id) => {
 		setArticle((currArticle) => {
 			return currArticle.map((article) => {
-				//+article_id as it comes as a "string" from useParams. Transforms into number
 				if (article.article_id === +article_id) {
 					return { ...article, votes: article.votes + 1 }
 				}
