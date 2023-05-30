@@ -1,14 +1,42 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.nav {
+	background-color: honeydew;
+	border: solid 1px;
+	position: sticky;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.7rem 2rem;
+	width: auto;
+	top: 0;
+	opacity: 0.8;
 }
 
 .articleItem {
-  border: 2px solid blue 
+	margin: 0 0 20px 0;
+	border: 2px solid blue;
 }
 
 .articlesList {
-  border: 2px solid red 
+	border: 2px solid red;
+}
+
+.commentsSection {
+	padding: 20px;
+	border: 2px solid salmon;
+	margin: 20px;
+}
+
+.comment {
+	margin: 20px 0 20px 0;
+	border: 2px dotted purple;
 }
