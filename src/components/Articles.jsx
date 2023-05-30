@@ -10,12 +10,11 @@ export default function Items() {
 	const params = searchParams.get('topic')
 
 	useEffect(() => {
-		// setCurrArticles([])
 		getArticles(params).then(({ articles }) => {
 			setCurrArticles(articles)
 			setIsLoading(false)
 		})
-	}, [])
+	}, [params])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 

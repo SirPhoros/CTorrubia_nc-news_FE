@@ -8,6 +8,7 @@ export function getArticles(params) {
 	console.log(params)
 	return NewsApi.get(`/articles?topic=${params}`)
 		.then(({ data }) => {
+			params = ''
 			return data
 		})
 		.catch((err) => console.log(err))
