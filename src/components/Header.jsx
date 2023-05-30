@@ -1,7 +1,7 @@
 export default function Header() {
 	return (
 		<>
-			<h1 className="header">Cristobal's NC_News</h1>
+			<h1 className="header">The Hive</h1>
 		</>
 	)
 }
