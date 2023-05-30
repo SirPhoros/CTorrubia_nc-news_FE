@@ -21,6 +21,13 @@ ul {
 	opacity: 0.8;
 }
 
+#vote {
+	display: inline;
+}
+.upVote,
+.downVote {
+	margin-left: 5px;
+}
 .articleItem {
 	margin: 0 0 20px 0;
 	border: 2px solid blue;
