@@ -30,12 +30,12 @@ export default function Comments(id) {
 						return (
 							<li
 								key={comment_id}
-								className="Comment"
+								className="comment"
 							>
 								<article>
-									<p>{author} commments: </p>
-									<p>{body}</p>
-									<p>Votes: {votes}</p>
+									<p>{author} commments... </p>
+									<p>"{body}"</p>
+									<p>votes: {votes}</p>
 								</article>
 							</li>
 						)
