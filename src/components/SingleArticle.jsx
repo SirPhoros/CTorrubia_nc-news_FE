@@ -4,15 +4,17 @@ import { getArticleById } from '../../utils'
 
 export default function SingleArticle() {
 	const [article, setArticle] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 	const { article_id } = useParams()
 
 	useEffect(() => {
 		getArticleById(article_id).then(({ article }) => {
 			setArticle(article)
+            setIsLoading(false)
 		})
 	}, [])
 
-	console.log(article)
+	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
 		<main className="articleItem">
