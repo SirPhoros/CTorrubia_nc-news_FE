@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Articles from './components/Articles'
+import SingleArticle from './components/SingleArticle'
 
 function App() {
 	return (
@@ -20,6 +21,10 @@ function App() {
 						<Route
 							path="/articles"
 							element={<Articles />}
+						/>
+						<Route
+							path="/articles/:article_id"
+							element={ <SingleArticle/>}
 						/>
 					</Routes>
 				</>
