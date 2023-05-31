@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById, voteArticle } from '../../utils'
+import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import moment from 'moment'
 
@@ -83,7 +84,9 @@ export default function SingleArticle() {
 								alt={title}
 							/>
 							<p>
-								Author: {author} <br></br> Topic: {topic} <br></br> Posted on:{' '}
+								Author: {author} <br></br> Category:{' '}
+								<Link to={`/articles/topics/${topic}`}>{topic}</Link> <br></br>{' '}
+								Posted on:{' '}
 								{moment(created_at).format('Do MMMM YYYY, h:mm:ss a')}
 							</p>
 							<p>{body}</p>

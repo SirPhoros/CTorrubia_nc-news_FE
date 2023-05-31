@@ -7,7 +7,17 @@
 body {
 	background-color: pink;
 	margin: auto;
+	width:90%;
+}
+
+main {
+	text-align: center;
+	margin: auto;
 	width: 75%;
+	min-height: 70vh;
+	overflow: overflow;
+	padding: 10px 5px;
+	border: 2px solid #bbb;
 }
 
 h1 {
@@ -44,9 +54,19 @@ nav a:hover {
 	color: #f1bb00;
 }
 
+p {
+	margin: 2% 5% 0% 5%;
+	text-align: justify;
+}
+
+.voteBlock {
+	margin-top: 50px;
+}
+
 #vote {
 	display: inline;
 }
+
 .upVote,
 .downVote {
 	margin-left: 5px;
@@ -75,4 +95,13 @@ img {
 	width: 100%;
 	max-width: 400px;
 	height: auto;
+}
+
+fieldset {
+	font-weight: 700;
+	display: flex;
+	background-color: #d5d5d5;
+	justify-content: space-evenly;
+	width: auto;
+	margin: 0 0 10px 0;
 }

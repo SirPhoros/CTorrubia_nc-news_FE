@@ -118,7 +118,10 @@ export default function Items() {
 										src={article_img_url}
 										alt={title}
 									/>
-									<p>{topic}</p>
+									<p>
+										Subject:{' '}
+										<Link to={`/articles/topics/${topic}`}>{topic}</Link>
+									</p>
 									<p></p>
 									<p>Comments: {comment_count}</p>
 								</article>
