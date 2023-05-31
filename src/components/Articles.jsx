@@ -4,9 +4,9 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
-	const { slug } = useParams()
+	const { topic } = useParams()
 
-	console.log(slug)
+	console.log(topic)
 
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
@@ -16,7 +16,6 @@ export default function Items() {
 		setSearchParams({ order })
 	}
 
-	const topic = searchParams.get('topic')
 	const sortBy = searchParams.get('sort_by')
 	const order = searchParams.get('order')
 
