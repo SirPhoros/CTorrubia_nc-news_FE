@@ -6,22 +6,84 @@ export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 
 	const [isLoading, setIsLoading] = useState(true)
-	const [searchParams] = useSearchParams()
+	const [searchParams, setSearchParams] = useSearchParams()
+
+	function handleSubmit() {
+		setSearchParams({ sortBy })
+		setSearchParams({ order })
+	}
+
 	const topic = searchParams.get('topic')
-	
+	const sortBy = searchParams.get('sort_by')
+	const order = searchParams.get('order')
 
 	useEffect(() => {
-		getArticles(topic).then(({ articles }) => {
+		getArticles(topic, sortBy, order).then(({ articles }) => {
 			setCurrArticles(articles)
 			setIsLoading(false)
 		})
-	}, [topic])
+	}, [topic, sortBy, order])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
 		<main className="articlesList">
 			<h2>Articles: </h2>
+			<section className="FilterBy">
+				<form onSubmit={handleSubmit}>
+					<fieldset>
+						<legend>Filter by: </legend>
+						<label htmlFor="date">
+							{' '}
+							Date:
+							<input
+								type="radio"
+								id="date"
+								name="sort_by"
+								value="created_at"
+								defaultChecked
+							></input>
+							<br></br>
+						</label>
+						<label htmlFor="comment_count">
+							{' '}
+							Comment count:
+							<input
+								type="radio"
+								id="comment_count"
+								name="sort_by"
+								value="comment_count"
+							></input>
+							<br></br>
+						</label>
+						<label htmlFor="votes">
+							{' '}
+							Votes:
+							<input
+								type="radio"
+								id="votes"
+								name="sort_by"
+								value="votes"
+							></input>
+							<br></br>
+						</label>
+						<label htmlFor="order">
+							{' '}
+							Order:
+							<select
+								id="order-select"
+								name="order"
+							>
+								<option value="asc">Ascendant</option>
+								<option value="desc">Descendant</option>
+							</select>
+						</label>
+						<br></br>
+
+						<button>Filter</button>
+					</fieldset>
+				</form>
+			</section>
 			<ul>
 				{currArticles.map(
 					({
