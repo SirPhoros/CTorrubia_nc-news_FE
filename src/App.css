@@ -3,11 +3,14 @@
 	margin: 0 auto;
 	padding: 0rem;
 	text-align: center;
+	font-family: 'Signika Negative', 'Signika Negative-fallback', 'Open Sans',
+		'Open Sans-fallback', system-ui, sans-serif;
+	line-height: 1.5;
+	font-weight: 700;
 }
 body {
-	background-color: pink;
+	background-color: #f1bb00;
 	margin: auto;
-	width:90%;
 }
 
 main {
@@ -42,14 +45,22 @@ nav {
 	position: sticky;
 	display: flex;
 	justify-content: space-evenly;
-	padding: 0.7rem 2rem;
-	width: auto;
+	padding: 0.5rem 0rem;
 	top: 0;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
 
-nav a {
+a {
 	color: white;
 }
+
+a:hover {
+	color:rgb(102, 63, 0)
+}
+
 nav a:hover {
 	color: #f1bb00;
 }
@@ -104,4 +115,20 @@ fieldset {
 	justify-content: space-evenly;
 	width: auto;
 	margin: 0 0 10px 0;
+}
+
+nav {
+	font-weight: 700;
+	background-color: black;
+	color: white;
+	border: solid 1px black;
+	position: sticky;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.5rem 0rem;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
