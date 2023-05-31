@@ -85,9 +85,11 @@ export default function SingleArticle() {
 							/>
 							<p>
 								Author: {author} <br></br> Category:{' '}
-								<Link to={`/articles/topics/${topic}`}>{topic}</Link> <br></br>{' '}
-								Posted on:{' '}
-								{moment(created_at).format('Do MMMM YYYY, h:mm:ss a')}
+								<Link to={`/articles/topics/${topic}`}>
+									{topic.charAt(0).toUpperCase() + topic.slice(1)}
+								</Link>{' '}
+								<br></br> Posted on:{' '}
+								{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}
 							</p>
 							<p>{body}</p>
 							<section className="voteBlock">

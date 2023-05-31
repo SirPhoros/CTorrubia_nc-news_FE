@@ -112,7 +112,7 @@ export default function Items() {
 									</h3>
 									<p>
 										Posted by {author} on{' '}
-										{moment(created_at).format('Do MMMM YYYY')}
+										{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}
 									</p>
 									<img
 										src={article_img_url}
@@ -120,7 +120,9 @@ export default function Items() {
 									/>
 									<p>
 										Subject:{' '}
-										<Link to={`/articles/topics/${topic}`}>{topic}</Link>
+										<Link to={`/articles/topics/${topic}`}>
+											{topic.charAt(0).toUpperCase() + topic.slice(1)}
+										</Link>
 									</p>
 									<p></p>
 									<p>Comments: {comment_count}</p>

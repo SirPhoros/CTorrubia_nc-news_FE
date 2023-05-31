@@ -22,7 +22,11 @@ export default function Topics() {
 				{topics.map(({ slug }) => {
 					return (
 						<li key={slug}>
-							<Link to={`/articles/topics/${slug}`}>{slug}</Link>
+							<Link to={`/articles/topics/${slug}`}>
+								{slug.charAt(0).toUpperCase() + slug.slice(1)}
+								<br />
+								<br />
+							</Link>
 						</li>
 					)
 				})}
