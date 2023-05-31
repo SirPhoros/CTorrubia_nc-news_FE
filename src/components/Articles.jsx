@@ -92,11 +92,11 @@ export default function Items() {
 							<select
 								id="order-select"
 								name="order"
+								defaultValue={'default'}
 								onChange={handleOrder}
 							>
 								<option
-									value=""
-									selected
+									value="default"
 									disabled
 									hidden
 								>
@@ -117,6 +117,7 @@ export default function Items() {
 						topic,
 						created_at,
 						author,
+						votes,
 						comment_count,
 						article_img_url,
 					}) => {
@@ -144,7 +145,10 @@ export default function Items() {
 										</Link>
 									</p>
 									<p></p>
-									<p>Comments: {comment_count}</p>
+									<p>
+										Comments: {comment_count} <br />
+										Votes: {votes}
+									</p>
 								</article>
 							</li>
 						)
