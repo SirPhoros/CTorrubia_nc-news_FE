@@ -7,14 +7,15 @@ export default function Items() {
 
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams] = useSearchParams()
-	const params = searchParams.get('topic')
+	const topic = searchParams.get('topic')
+	
 
 	useEffect(() => {
-		getArticles(params).then(({ articles }) => {
+		getArticles(topic).then(({ articles }) => {
 			setCurrArticles(articles)
 			setIsLoading(false)
 		})
-	}, [params])
+	}, [topic])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 

@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom'
 
 export default function Topics() {
 	const [topics, setTopics] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
 		getTopics().then(({ topics }) => {
 			setTopics(topics)
+			setIsLoading(false)
 		})
 	}, [])
+
+	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
 		<main>
