@@ -17,6 +17,12 @@ export default function Items() {
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
+		/*Create form with radio buttons (sorting) + ordening (asc, desc) 
+		https://reactrouter.com/en/main/hooks/use-search-params-rn
+		https://www.makeuseof.com/react-query-params-update-read/
+		With that, handle the URL and update it.
+		
+*/
 		<main className="articlesList">
 			<h2>Articles: </h2>
 			<ul>
