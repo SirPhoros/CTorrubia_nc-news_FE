@@ -7,18 +7,29 @@ export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
 	const [query, setQuery] = useState('')
-	const [orderBy, setOrderBy] = useState('desc')
+	const [orderBy, setOrderBy] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
 
-	function handleQuery(e) {
-		setQuery(e.target.value)
-		setSearchParams({ sort_by: e.target.value, order: orderBy })
+	function handleSort(e) {
+		const newParams = {
+			sort_by: searchParams.get('sort_by'),
+			order: searchParams.get('order'),
+		}
+
+		if (!newParams.order) delete newParams.order
+		newParams.sort_by = e.target.value
+		setSearchParams(newParams)
 	}
 
 	function handleOrder(e) {
-		setOrderBy(e.target.value)
-		setSearchParams({ sort_by: query, order: e.target.value })
+		const newParams = {
+			sort_by: searchParams.get('sort_by'),
+			order: searchParams.get('order'),
+		}
+		if (!newParams.sort_by) delete newParams.sort_by
+		newParams.order = e.target.value
+		setSearchParams(newParams)
 	}
 
 	const sortBy = searchParams.get('sort_by') // with no sortBy, the url may look odd
@@ -47,7 +58,7 @@ export default function Items() {
 								id="date"
 								name="sort_by"
 								value="created_at"
-								onChange={(e) => handleQuery(e)}
+								onChange={(e) => handleSort(e)}
 							></input>
 							<br></br>
 						</label>
@@ -59,7 +70,7 @@ export default function Items() {
 								id="comment_count"
 								name="sort_by"
 								value="comment_count"
-								onChange={(e) => handleQuery(e)}
+								onChange={(e) => handleSort(e)}
 							></input>
 							<br></br>
 						</label>
@@ -71,7 +82,7 @@ export default function Items() {
 								id="votes"
 								name="sort_by"
 								value="votes"
-								onChange={(e) => handleQuery(e)}
+								onChange={(e) => handleSort(e)}
 							></input>
 							<br></br>
 						</label>
@@ -83,6 +94,14 @@ export default function Items() {
 								name="order"
 								onChange={handleOrder}
 							>
+								<option
+									value=""
+									selected
+									disabled
+									hidden
+								>
+									Select your option
+								</option>
 								<option value="asc">Ascendant</option>
 								<option value="desc">Descendant</option>
 							</select>
