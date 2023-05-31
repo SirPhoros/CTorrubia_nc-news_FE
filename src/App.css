@@ -58,7 +58,7 @@ a {
 }
 
 a:hover {
-	color:rgb(102, 63, 0)
+	color: rgb(102, 63, 0);
 }
 
 nav a:hover {
@@ -82,10 +82,6 @@ p {
 .downVote {
 	margin-left: 5px;
 }
-.articleItem {
-	margin: 0 0 20px 0;
-	border: 2px solid blue;
-}
 
 .articlesList {
 	border: 2px solid red;
@@ -100,6 +96,33 @@ p {
 .comment {
 	margin: 20px 0 20px 0;
 	border: 2px dotted purple;
+}
+
+.foot-article {
+	font-size: xx-small;
+}
+
+.articleItem {
+	margin: 0 0 20px 0;
+	border: 2px solid blue;
+	grid-column: span 2;
+}
+
+.articleItem:nth-last-child(1):nth-child(odd) {
+	grid-column: 2 / span 2;
+}
+
+.article-title {
+	font-size: xx-small;
+}
+
+.article-list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+	margin: 20px;
+	padding: 20px;
+	justify-items: center;
 }
 
 img {

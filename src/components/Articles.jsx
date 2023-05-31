@@ -109,7 +109,7 @@ export default function Items() {
 					</fieldset>
 				</form>
 			</section>
-			<ul>
+			<ul className="article-list">
 				{currArticles.map(
 					({
 						article_id,
@@ -126,29 +126,27 @@ export default function Items() {
 								key={article_id}
 								className="articleItem"
 							>
-								<article>
-									<h3>
+								<article className="article-item">
+									<h3 className='article-title'>
 										<Link to={`/articles/${article_id}`}>{title}</Link>
 									</h3>
-									<p>
-										Posted by {author} on{' '}
-										{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}
-									</p>
 									<img
 										src={article_img_url}
 										alt={title}
 									/>
-									<p>
-										Subject:{' '}
-										<Link to={`/articles/topics/${topic}`}>
-											{topic.charAt(0).toUpperCase() + topic.slice(1)}
-										</Link>
-									</p>
-									<p></p>
-									<p>
-										Comments: {comment_count} <br />
-										Votes: {votes}
-									</p>
+
+									<section className="foot-article">
+										<p>
+											on:{' '}
+											<Link to={`/articles/topics/${topic}`}>
+												{topic.charAt(0).toUpperCase() + topic.slice(1)}
+											</Link>{' '}
+											<br />
+											Posted by {author} on{' '}
+											{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}{' '}
+											Comments: {comment_count} Votes: {votes}
+										</p>
+									</section>
 								</article>
 							</li>
 						)
