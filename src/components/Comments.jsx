@@ -5,15 +5,21 @@ import CommentAdder from './CommentAdder'
 export default function Comments(id) {
 	const [comments, setComments] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	const [isDeleting, setIsDeleting] = useState(false)
 
 	const username = 'jessjelly'
 
+	function handleDelete(comment_id) {
+		setIsDeleting(true)
+		deteleComment(comment_id)
+		setTimeout(() => setIsDeleting(false), 2000)
+	}
 	useEffect(() => {
 		getCommentsFromArticle(id).then(({ comments }) => {
 			setComments(comments)
 			setIsLoading(false)
 		})
-	}, [])
+	}, [isDeleting])
 
 	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
 	if (comments.length === 0) return <p>No comments yet</p>
@@ -36,11 +42,19 @@ export default function Comments(id) {
 								<p>{author} commments... </p>
 								<p>"{body}"</p>
 								<p>votes: {votes}</p>
-								{author === username ? (
-									<button onClick={() => removeComment(comment_id)}>✖️</button>
-								) : (
-									<></>
-								)}
+								{author === username && !isDeleting ? (
+									<>
+										<button
+											onClick={() => {
+												handleDelete(comment_id)
+											}}
+										>
+											✖️
+										</button>
+									</>
+								) : author === username && isDeleting ? (
+									<p className="prompt">Deleting comment... Please Wait. </p>
+								) : null}
 							</article>
 						</li>
 					)
