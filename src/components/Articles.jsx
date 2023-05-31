@@ -5,18 +5,23 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
-
+	const [query, setQuery] = useState('')
+	const [orderBy, setOrderBy] = useState('desc')
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
 
-	function handleSubmit() {
-		setSearchParams({ sortBy })
-		setSearchParams({ order })
+	function handleQuery(e) {
+		setQuery(e.target.value)
+		setSearchParams({ sort_by: e.target.value, order: orderBy })
 	}
 
-	const sortBy = searchParams.get('sort_by')
-	const order = searchParams.get('order')
+	function handleOrder(e) {
+		setOrderBy(e.target.value)
+		setSearchParams({ sort_by: query, order: e.target.value })
+	}
 
+	const sortBy = searchParams.get('sort_by') // with no sortBy, the url may look odd
+	const order = searchParams.get('order') // with no order, the url may look odd
 	useEffect(() => {
 		getArticles(topic, sortBy, order).then(({ articles }) => {
 			setCurrArticles(articles)
@@ -30,7 +35,7 @@ export default function Items() {
 		<main className="articlesList">
 			<h2>Articles: </h2>
 			<section className="FilterBy">
-				<form onSubmit={handleSubmit}>
+				<form>
 					<fieldset>
 						<legend>Filter by: </legend>
 						<label htmlFor="date">
@@ -41,7 +46,8 @@ export default function Items() {
 								id="date"
 								name="sort_by"
 								value="created_at"
-								defaultChecked
+								onChange={(e) => handleQuery(e)}
+								
 							></input>
 							<br></br>
 						</label>
@@ -53,6 +59,7 @@ export default function Items() {
 								id="comment_count"
 								name="sort_by"
 								value="comment_count"
+								onChange={(e) => handleQuery(e)}
 							></input>
 							<br></br>
 						</label>
@@ -64,6 +71,7 @@ export default function Items() {
 								id="votes"
 								name="sort_by"
 								value="votes"
+								onChange={(e) => handleQuery(e)}
 							></input>
 							<br></br>
 						</label>
@@ -73,14 +81,12 @@ export default function Items() {
 							<select
 								id="order-select"
 								name="order"
+								onChange={handleOrder}
 							>
 								<option value="asc">Ascendant</option>
 								<option value="desc">Descendant</option>
 							</select>
 						</label>
-						<br></br>
-
-						<button>Filter</button>
 					</fieldset>
 				</form>
 			</section>
