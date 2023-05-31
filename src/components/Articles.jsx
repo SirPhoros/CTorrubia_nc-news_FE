@@ -6,8 +6,6 @@ export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
 
-	console.log(topic)
-
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
 
