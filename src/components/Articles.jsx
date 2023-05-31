@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getArticles } from '../../utils'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
+import moment from 'moment'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
@@ -47,7 +48,6 @@ export default function Items() {
 								name="sort_by"
 								value="created_at"
 								onChange={(e) => handleQuery(e)}
-								
 							></input>
 							<br></br>
 						</label>
@@ -96,6 +96,7 @@ export default function Items() {
 						article_id,
 						title,
 						topic,
+						created_at,
 						author,
 						comment_count,
 						article_img_url,
@@ -109,12 +110,16 @@ export default function Items() {
 									<h3>
 										<Link to={`/articles/${article_id}`}>{title}</Link>
 									</h3>
+									<p>
+										Posted by {author} on{' '}
+										{moment(created_at).format('MMMM Do YYYY')}
+									</p>
 									<img
 										src={article_img_url}
 										alt={title}
 									/>
 									<p>{topic}</p>
-									<p>{author}</p>
+									<p></p>
 									<p>Comments: {comment_count}</p>
 								</article>
 							</li>
