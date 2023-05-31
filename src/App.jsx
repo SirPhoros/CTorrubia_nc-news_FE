@@ -5,6 +5,7 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
+import Topics from './components/Topics'
 
 function App() {
 	return (
@@ -25,6 +26,10 @@ function App() {
 						<Route
 							path="/articles/:article_id"
 							element={ <SingleArticle/>}
+						/>
+						<Route
+							path="/topics"
+							element={ <Topics/>}
 						/>
 					</Routes>
 				</>
