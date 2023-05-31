@@ -6,13 +6,19 @@ export default function Comments(id) {
 	const [comments, setComments] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [isDeleting, setIsDeleting] = useState(false)
+	const [deletedCommentId, setDeletedCommentId] = useState(null)
 
 	const username = 'jessjelly'
 
 	function handleDelete(comment_id) {
 		setIsDeleting(true)
-		deteleComment(comment_id)
-		setTimeout(() => setIsDeleting(false), 2000)
+		deteleComment(comment_id).then(() => {
+			setDeletedCommentId(comment_id) //
+			setTimeout(() => {
+				setDeletedCommentId(null) 
+				setIsDeleting(false)
+			}, 2000)
+		})
 	}
 	useEffect(() => {
 		getCommentsFromArticle(id).then(({ comments }) => {
@@ -42,7 +48,9 @@ export default function Comments(id) {
 								<p>{author} commments... </p>
 								<p>"{body}"</p>
 								<p>votes: {votes}</p>
-								{author === username && !isDeleting ? (
+								{author === username && comment_id === deletedCommentId ? (
+									<p className="prompt">Deleting comment... Please Wait. </p>
+								) : author === username && !isDeleting ? (
 									<>
 										<button
 											onClick={() => {
@@ -52,8 +60,6 @@ export default function Comments(id) {
 											✖️
 										</button>
 									</>
-								) : author === username && isDeleting ? (
-									<p className="prompt">Deleting comment... Please Wait. </p>
 								) : null}
 							</article>
 						</li>
