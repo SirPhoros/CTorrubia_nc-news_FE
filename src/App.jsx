@@ -31,6 +31,11 @@ function App() {
 							path="/topics"
 							element={ <Topics/>}
 						/>
+						<Route
+							path="/articles/topics/:topic"
+							element={ <Topics/>}
+						/>
+
 					</Routes>
 				</>
 			</BrowserRouter>

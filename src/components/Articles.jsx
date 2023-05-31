@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { getArticles } from '../../utils'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
+	const { slug } = useParams()
+
+	console.log(slug)
 
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
