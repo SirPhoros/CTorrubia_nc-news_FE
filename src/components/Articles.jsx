@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	
 
 	useEffect(() => {
 		getArticles().then(({ articles }) => {

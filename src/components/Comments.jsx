@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { getCommentsFromArticle } from '../../utils'
+import { deteleComment, getCommentsFromArticle } from '../../utils'
 import CommentAdder from './CommentAdder'
 
 export default function Comments(id) {
 	const [comments, setComments] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+
+	const username = 'jessjelly'
 
 	useEffect(() => {
 		getCommentsFromArticle(id).then(({ comments }) => {
@@ -34,6 +36,11 @@ export default function Comments(id) {
 								<p>{author} commments... </p>
 								<p>"{body}"</p>
 								<p>votes: {votes}</p>
+								{author === username ? (
+									<button onClick={() => removeComment(comment_id)}>✖️</button>
+								) : (
+									<></>
+								)}
 							</article>
 						</li>
 					)
