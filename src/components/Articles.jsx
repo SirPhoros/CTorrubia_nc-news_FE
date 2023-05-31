@@ -112,7 +112,7 @@ export default function Items() {
 									</h3>
 									<p>
 										Posted by {author} on{' '}
-										{moment(created_at).format('MMMM Do YYYY')}
+										{moment(created_at).format('Do MMMM YYYY')}
 									</p>
 									<img
 										src={article_img_url}

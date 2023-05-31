@@ -84,7 +84,7 @@ export default function SingleArticle() {
 							/>
 							<p>
 								Author: {author} <br></br> Topic: {topic} <br></br> Posted on:{' '}
-								{moment(created_at).format('MMMM Do YYYY, h:mm:ss a')}
+								{moment(created_at).format('Do MMMM YYYY, h:mm:ss a')}
 							</p>
 							<p>{body}</p>
 							<section className="voteBlock">
