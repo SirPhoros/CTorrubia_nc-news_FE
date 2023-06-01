@@ -99,14 +99,14 @@ export default function SingleArticle() {
 									onClick={() => upVote(article_id)}
 								>
 									{' '}
-									⬆️{' '}
+									🔥{' '}
 								</button>
 								<button
 									className="downVote"
 									onClick={() => downVote(article_id)}
 								>
 									{' '}
-									⬇️{' '}
+									🧊{' '}
 								</button>
 							</section>
 						</article>
