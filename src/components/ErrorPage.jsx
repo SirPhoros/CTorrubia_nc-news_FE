@@ -6,7 +6,7 @@ export default function ErrorPage({ error }) {
 			<h1 className="error">
 				Error {error.status}: {error.data.msg}
 			</h1>
-			<p>We will help you. Press this button to go back to the main page:</p>
+			<p> Press this button to go back to the home page:</p>
 
 			<button>
 				<Link to="/">Home </Link>
@@ -14,11 +14,11 @@ export default function ErrorPage({ error }) {
 		</>
 	) : (
 		<>
-			<h2 className="error-title">Oops... something went wrong</h2>
-			<h3 className="error-text">
+			<h1 className="error-title">Oops... something went wrong</h1>
+			<h2 className="error-text">
 				Did you get lost? Do not worry, sometimes it happens...
-			</h3>
-			<p>We will help you. Press this button to go back to the main page:</p>
+			</h2>
+			<p>We will help you. Press this button to go back to the home page:</p>
 
 			<button>
 				<Link to="/">Home </Link>
