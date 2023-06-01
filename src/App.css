@@ -3,11 +3,24 @@
 	margin: 0 auto;
 	padding: 0rem;
 	text-align: center;
+	font-family: 'Signika Negative', 'Signika Negative-fallback', 'Open Sans',
+		'Open Sans-fallback', system-ui, sans-serif;
+	line-height: 1.5;
+	font-weight: 700;
 }
 body {
-	background-color: pink;
+	background-color: #f1bb00;
+	margin: auto;
+}
+
+main {
+	text-align: center;
 	margin: auto;
 	width: 75%;
+	min-height: 70vh;
+	overflow: overflow;
+	padding: 10px 5px;
+	border: 2px solid #bbb;
 }
 
 h1 {
@@ -32,28 +45,42 @@ nav {
 	position: sticky;
 	display: flex;
 	justify-content: space-evenly;
-	padding: 0.7rem 2rem;
-	width: auto;
+	padding: 0.5rem 0rem;
 	top: 0;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }
 
-nav a {
+a {
 	color: white;
 }
+
+a:hover {
+	color: rgb(102, 63, 0);
+}
+
 nav a:hover {
 	color: #f1bb00;
+}
+
+p {
+	margin: 2% 5% 0% 5%;
+	text-align: justify;
+}
+
+.voteBlock {
+	margin-top: 50px;
 }
 
 #vote {
 	display: inline;
 }
+
 .upVote,
 .downVote {
 	margin-left: 5px;
-}
-.articleItem {
-	margin: 0 0 20px 0;
-	border: 2px solid blue;
 }
 
 .articlesList {
@@ -71,8 +98,60 @@ nav a:hover {
 	border: 2px dotted purple;
 }
 
+.foot-article {
+	font-size: xx-small;
+}
+
+.articleItem {
+	margin: 0 0 20px 0;
+	border: 2px solid blue;
+	grid-column: span 2;
+}
+
+.articleItem:nth-last-child(1):nth-child(odd) {
+	grid-column: 2 / span 2;
+}
+
+.article-title {
+	font-size: xx-small;
+}
+
+.article-list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+	margin: 20px;
+	padding: 20px;
+	justify-items: center;
+}
+
 img {
 	width: 100%;
 	max-width: 400px;
 	height: auto;
+}
+
+fieldset {
+	font-weight: 700;
+	display: flex;
+	background-color: #d5d5d5;
+	justify-content: space-evenly;
+	width: auto;
+	margin: 0 0 10px 0;
+}
+
+nav {
+	font-weight: 700;
+	background-color: black;
+	color: white;
+	border: solid 1px black;
+	position: sticky;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.5rem 0rem;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 }

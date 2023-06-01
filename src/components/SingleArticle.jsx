@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById, voteArticle } from '../../utils'
+import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import ErrorPage from './ErrorPage'
+import moment from 'moment'
 
 export default function SingleArticle() {
-	const [article, setArticle] = useState([])
 	const [error, setError] = useState(null)
+	const [article, setArticle] = useState([])
+	const [upClicked, setUpClicked] = useState(false)
+	const [downClicked, setDownClicked] = useState(false)
 	const [isLoading, setIsLoading] = useState(true)
 	const { article_id } = useParams()
 
@@ -21,6 +25,25 @@ export default function SingleArticle() {
 				setError(err.response)
 			})
 	}, [])
+
+	const handleUpVote = (article_id) => {
+		if (!upClicked) {
+			setUpClicked(true)
+			upVote(article_id)
+		} else {
+			setUpClicked(false)
+			downVote(article_id)
+		}
+	}
+	const handleDownVote = (article_id) => {
+		if (!downClicked) {
+			setDownClicked(true)
+			downVote(article_id)
+		} else {
+			setDownClicked(false)
+			upVote(article_id)
+		}
+	}
 
 	const upVote = (article_id) => {
 		setArticle((currArticle) => {
@@ -88,14 +111,14 @@ export default function SingleArticle() {
 							<p id="vote">Current votes: {votes}</p>
 							<button
 								className="upVote"
-								onClick={() => upVote(article_id)}
+								onClick={() => handleUpVote(article_id)}
 							>
 								{' '}
 								⬆️{' '}
 							</button>
 							<button
 								className="downVote"
-								onClick={() => downVote(article_id)}
+								onClick={() => handleDownVote(article_id)}
 							>
 								{' '}
 								⬇️{' '}

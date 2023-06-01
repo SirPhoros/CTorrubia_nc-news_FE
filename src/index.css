@@ -1,11 +1,11 @@
-:root {
+/* :root {
 	font-family: 'Signika Negative', 'Signika Negative-fallback', 'Open Sans',
 		'Open Sans-fallback', system-ui, sans-serif !important;
 	line-height: 1.5;
 	font-weight: 700;
-	background-color: #f1bb00;
+	background-color: #f1bb00; 
 
-	/* color-scheme: light dark;
+	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
 	background-color: #242424;
 
@@ -15,8 +15,8 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%; */
-}
+	-webkit-text-size-adjust: 100%;
+} */
 
 /*
 a {

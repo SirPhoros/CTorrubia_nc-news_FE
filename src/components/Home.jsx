@@ -1,6 +1,6 @@
 export default function Home() {
 	return (
-		<>
+		<main>
 			<h2 className="title">Welcome to The Hive</h2>
 			<h3 className="description-title">
 				Introducing The Hive: Your Source for Timely and Reliable News
@@ -11,6 +11,6 @@ export default function Home() {
 				the industrious nature of the working bees from Manchester, The Hive
 				aims to create a buzzing hive of information and engagement.
 			</p>
-		</>
+		</main>
 	)
 }

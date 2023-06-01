@@ -16,7 +16,8 @@ export default function CommentAdder({ setComments, id }) {
 			setComments((currComments) => {
 				return [newCommentFromApi, ...currComments]
 			})
-			return setPostMsg('Comment added successfully')
+			setPostMsg('Comment added successfully')
+			setTimeout(() => setPostMsg(''), 2000)
 		})
 	}
 
@@ -26,7 +27,9 @@ export default function CommentAdder({ setComments, id }) {
 				className="CommentAdder"
 				onSubmit={handleSubmit}
 			>
-				<label htmlFor="newComment">Add a Comment</label>
+				<label htmlFor="newComment">
+					Add a Comment: <br />
+				</label>
 				<textarea
 					id="newComment"
 					multiline="true"

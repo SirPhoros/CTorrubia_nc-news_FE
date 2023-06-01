@@ -36,6 +36,10 @@ function App() {
 							path="/*"
 							element={<ErrorPage />}
 						/>
+						<Route
+							path="/articles/topics/:topic"
+							element={<Articles />}
+						/>
 					</Routes>
 				</>
 			</BrowserRouter>
