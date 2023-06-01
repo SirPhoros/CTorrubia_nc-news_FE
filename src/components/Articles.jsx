@@ -3,14 +3,16 @@ import { getArticles } from '../../utils'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import moment from 'moment'
 import ErrorPage from './ErrorPage'
+import Pagination from './Pagination'
 
 export default function Items() {
+	let newParams = {}
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
-
 	const [error, setError] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [itemCount, setItemCount] = useState(0)
 
 	function handleSort(e) {
 		const newParams = {
@@ -51,11 +53,12 @@ export default function Items() {
 
 	const sortBy = searchParams.get('sort_by')
 	const order = searchParams.get('order')
-	const limit = searchParams.get('limit')
-
+	const limit = searchParams.get('limit') || 10
+	const p = searchParams.get('p')
 	useEffect(() => {
-		getArticles(topic, sortBy, order, limit)
-			.then(({ articles }) => {
+		getArticles(topic, sortBy, order, limit, p)
+			.then(({ count, articles }) => {
+				setItemCount(count)
 				setCurrArticles(articles)
 				setIsLoading(false)
 			})
@@ -64,7 +67,7 @@ export default function Items() {
 				setError(err.response)
 				err.response.data.msg = 'Topic not found'
 			})
-	}, [topic, sortBy, order, limit])
+	}, [topic, sortBy, order, limit, p])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
@@ -186,6 +189,10 @@ export default function Items() {
 					}
 				)}
 			</ul>
+			<Pagination
+				itemCount={itemCount}
+				limit={limit}
+			/>
 		</main>
 	)
 }
