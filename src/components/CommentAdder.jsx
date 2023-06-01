@@ -27,7 +27,9 @@ export default function CommentAdder({ setComments, id }) {
 				className="CommentAdder"
 				onSubmit={handleSubmit}
 			>
-				<label htmlFor="newComment">Add a Comment</label>
+				<label htmlFor="newComment">
+					Add a Comment: <br />
+				</label>
 				<textarea
 					id="newComment"
 					multiline="true"

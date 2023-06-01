@@ -25,11 +25,15 @@ function App() {
 						/>
 						<Route
 							path="/articles/:article_id"
-							element={ <SingleArticle/>}
+							element={<SingleArticle />}
 						/>
 						<Route
 							path="/topics"
-							element={ <Topics/>}
+							element={<Topics />}
+						/>
+						<Route
+							path="/articles/topics/:topic"
+							element={<Articles />}
 						/>
 					</Routes>
 				</>
