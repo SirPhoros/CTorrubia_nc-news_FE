@@ -33,7 +33,7 @@ function App() {
 							element={<Topics />}
 						/>
 						<Route
-							path="*"
+							path="/*"
 							element={<ErrorPage />}
 						/>
 					</Routes>

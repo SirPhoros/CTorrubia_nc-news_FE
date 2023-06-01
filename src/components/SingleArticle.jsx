@@ -2,18 +2,24 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById, voteArticle } from '../../utils'
 import Comments from './Comments'
+import ErrorPage from './ErrorPage'
 
 export default function SingleArticle() {
 	const [article, setArticle] = useState([])
-
+	const [error, setError] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	const { article_id } = useParams()
 
 	useEffect(() => {
-		getArticleById(article_id).then(({ article }) => {
-			setArticle(article)
-			setIsLoading(false)
-		})
+		getArticleById(article_id)
+			.then(({ article }) => {
+				setArticle(article)
+				setIsLoading(false)
+			})
+			.catch((err) => {
+				setIsLoading(false)
+				setError(err.response)
+			})
 	}, [])
 
 	const upVote = (article_id) => {
@@ -62,7 +68,9 @@ export default function SingleArticle() {
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
-	return (
+	return error ? (
+		<ErrorPage error={error} />
+	) : (
 		<main className="articleItem">
 			{article.map(({ title, author, body, topic, votes, article_img_url }) => {
 				return (

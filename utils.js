@@ -12,11 +12,9 @@ export function getArticles(topic) {
 }
 
 export function getArticleById(id) {
-	return NewsApi.get(`/articles/${id}`)
-		.then(({ data }) => {
-			return data
-		})
-		.catch((err) => console.log(err))
+	return NewsApi.get(`/articles/${id}`).then(({ data }) => {
+		return data
+	})
 }
 
 export function getCommentsFromArticle({ article_id }) {
@@ -27,7 +25,7 @@ export function getCommentsFromArticle({ article_id }) {
 		.catch((err) => console.log(err))
 }
 export const postComment = (newCommentText, { article_id }) => {
-		const postBody = {
+	const postBody = {
 		username: 'jessjelly',
 		body: newCommentText,
 	}
