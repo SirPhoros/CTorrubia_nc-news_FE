@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { getCommentsFromArticle } from '../../utils'
 import moment from 'moment'
 import { deteleComment, getCommentsFromArticle } from '../../utils'
 import CommentAdder from './CommentAdder'
@@ -17,7 +16,7 @@ export default function Comments(id) {
 		deteleComment(comment_id).then(() => {
 			setDeletedCommentId(comment_id) //
 			setTimeout(() => {
-				setDeletedCommentId(null) 
+				setDeletedCommentId(null)
 				setIsDeleting(false)
 			}, 2000)
 		})
