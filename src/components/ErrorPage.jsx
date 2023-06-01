@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export default function ErrorPage({ error }) {
+	console.log(error)
 	return error ? (
 		<>
 			<h1 className="error">

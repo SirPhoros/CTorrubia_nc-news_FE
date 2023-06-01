@@ -1,25 +1,33 @@
 import { useEffect, useState } from 'react'
 import { getArticles } from '../../utils'
 import { Link, useSearchParams } from 'react-router-dom'
+import ErrorPage from './ErrorPage'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
-
+	const [error, setError] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams] = useSearchParams()
 	const topic = searchParams.get('topic')
-	
 
 	useEffect(() => {
-		getArticles(topic).then(({ articles }) => {
-			setCurrArticles(articles)
-			setIsLoading(false)
-		})
+		getArticles(topic)
+			.then(({ articles }) => {
+				setCurrArticles(articles)
+				setIsLoading(false)
+			})
+			.catch((err) => {
+				setIsLoading(false)
+				setError(err.response)
+				err.response.data.msg = "Topic not found"
+			})
 	}, [topic])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
-	return (
+	return error ? (
+		<ErrorPage error={error} />
+	) : (
 		<main className="articlesList">
 			<h2>Articles: </h2>
 			<ul>

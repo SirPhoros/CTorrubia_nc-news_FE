@@ -8,7 +8,7 @@ export function getArticles(topic) {
 		.then(({ data }) => {
 			return data
 		})
-		.catch((err) => console.log(err))
+	
 }
 
 export function getArticleById(id) {
