@@ -7,9 +7,7 @@ import ErrorPage from './ErrorPage'
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
-	const [query, setQuery] = useState('')
 	const [error, setError] = useState(null)
-	const [orderBy, setOrderBy] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
 
