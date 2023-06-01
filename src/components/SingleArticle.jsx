@@ -113,15 +113,13 @@ export default function SingleArticle() {
 								className="upVote"
 								onClick={() => handleUpVote(article_id)}
 							>
-								{' '}
-								⬆️{' '}
+								{!upClicked ? '🔥' : 'Liked!'}
 							</button>
 							<button
 								className="downVote"
 								onClick={() => handleDownVote(article_id)}
 							>
-								{' '}
-								⬇️{' '}
+									{!downClicked ? '🧊' : 'Dislike'}
 							</button>
 						</section>
 					</article>
