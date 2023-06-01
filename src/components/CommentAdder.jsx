@@ -11,14 +11,20 @@ export default function CommentAdder({ setComments, id }) {
 		if (newComment.length === 0) {
 			return setPostMsg('Your comment cannot be empty!')
 		}
-		postComment(newComment, id).then((newCommentFromApi) => {
-			setNewComment('')
-			setComments((currComments) => {
-				return [newCommentFromApi, ...currComments]
+		postComment(newComment, id)
+			.then((newCommentFromApi) => {
+				setNewComment('')
+				setComments((currComments) => {
+					return [newCommentFromApi, ...currComments]
+				})
+				setPostMsg('Comment added successfully')
+				setTimeout(() => setPostMsg(''), 2000)
 			})
-			setPostMsg('Comment added successfully')
-			setTimeout(() => setPostMsg(''), 2000)
-		})
+			.catch((err) => {
+				console.log(err, '<< API response')
+				setPostMsg("Couldn't post your comment... try later")
+				setTimeout(() => setPostMsg(''), 2000)
+			})
 	}
 
 	return (
