@@ -2,7 +2,8 @@
 	font-family: 'Signika Negative', 'Signika Negative-fallback', 'Open Sans',
 		'Open Sans-fallback', system-ui, sans-serif !important;
 	line-height: 1.5;
-	font-weight: 400;
+	font-weight: 700;
+	background-color: #f1bb00;
 
 	/* color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);

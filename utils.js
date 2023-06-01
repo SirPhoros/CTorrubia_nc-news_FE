@@ -3,8 +3,8 @@ const NewsApi = axios.create({
 	baseURL: `https://nc-news-soloproject-be.onrender.com/api`,
 })
 
-export function getArticles() {
-	return NewsApi.get(`/articles`)
+export function getArticles(topic) {
+	return NewsApi.get(`/articles`, { params: { topic: topic } })
 		.then(({ data }) => {
 			return data
 		})
@@ -49,8 +49,17 @@ export function voteArticle(article_id, num) {
 	)
 }
 
+
 export function deteleComment(comment_id) {
 	return NewsApi.delete(`/comments/${comment_id}`).catch((err) =>
 		console.log(err)
 	)
+}
+
+export function getTopics() {
+	return NewsApi.get(`/topics`)
+		.then(({ data }) => {
+			return data
+		})
+		.catch((err) => console.log(err))
 }
