@@ -10,15 +10,13 @@ export function getArticles(topic, sortBy, order) {
 		.then(({ data }) => {
 			return data
 		})
-		.catch((err) => console.log(err))
+	
 }
 
 export function getArticleById(id) {
-	return NewsApi.get(`/articles/${id}`)
-		.then(({ data }) => {
-			return data
-		})
-		.catch((err) => console.log(err))
+	return NewsApi.get(`/articles/${id}`).then(({ data }) => {
+		return data
+	})
 }
 
 export function getCommentsFromArticle({ article_id }) {

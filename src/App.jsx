@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import Topics from './components/Topics'
+import ErrorPage from './components/ErrorPage'
 
 function App() {
 	return (
@@ -30,6 +31,10 @@ function App() {
 						<Route
 							path="/topics"
 							element={<Topics />}
+						/>
+						<Route
+							path="/*"
+							element={<ErrorPage />}
 						/>
 						<Route
 							path="/articles/topics/:topic"

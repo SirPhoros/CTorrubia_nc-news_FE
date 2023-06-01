@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { getArticles } from '../../utils'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import moment from 'moment'
+import ErrorPage from './ErrorPage'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
 	const { topic } = useParams()
 	const [query, setQuery] = useState('')
+	const [error, setError] = useState(null)
 	const [orderBy, setOrderBy] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams, setSearchParams] = useSearchParams()
@@ -40,11 +42,18 @@ export default function Items() {
 			setCurrArticles(articles)
 			setIsLoading(false)
 		})
+		.catch((err) => {
+			setIsLoading(false)
+			setError(err.response)
+			err.response.data.msg = "Topic not found"
+		})
 	}, [topic, sortBy, order])
 
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
-	return (
+	return error ? (
+		<ErrorPage error={error} />
+	) : (
 		<main className="articlesList">
 			<h2>Articles: </h2>
 			<section className="FilterBy">
