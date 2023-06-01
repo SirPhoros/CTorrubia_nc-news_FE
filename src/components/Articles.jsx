@@ -32,8 +32,9 @@ export default function Items() {
 		setSearchParams(newParams)
 	}
 
-	const sortBy = searchParams.get('sort_by') // with no sortBy, the url may look odd
-	const order = searchParams.get('order') // with no order, the url may look odd
+	const sortBy = searchParams.get('sort_by')
+	const order = searchParams.get('order')
+
 	useEffect(() => {
 		getArticles(topic, sortBy, order).then(({ articles }) => {
 			setCurrArticles(articles)
@@ -50,45 +51,28 @@ export default function Items() {
 				<form>
 					<fieldset>
 						<legend>Filter by: </legend>
-						<label htmlFor="date">
+						<label htmlFor="order">
 							{' '}
-							Date:
-							<input
-								type="radio"
-								id="date"
-								name="sort_by"
-								value="created_at"
-								onChange={(e) => handleSort(e)}
-							></input>
-							<br></br>
-						</label>
-						<label htmlFor="comment_count">
-							{' '}
-							Comment count:
-							<input
-								type="radio"
-								id="comment_count"
-								name="sort_by"
-								value="comment_count"
-								onChange={(e) => handleSort(e)}
-							></input>
-							<br></br>
-						</label>
-						<label htmlFor="votes">
-							{' '}
-							Votes:
-							<input
-								type="radio"
-								id="votes"
-								name="sort_by"
-								value="votes"
-								onChange={(e) => handleSort(e)}
-							></input>
-							<br></br>
+							<select
+								id="order-select"
+								name="order"
+								defaultValue={'default'}
+								onChange={handleSort}
+							>
+								<option
+									value="default"
+									disabled
+									hidden
+								>
+									Sort
+								</option>
+								<option value="created_at">Date</option>
+								<option value="comment_count">Comment count</option>
+								<option value="votes">Votes</option>
+							</select>
 						</label>
 						<label htmlFor="order">
 							{' '}
-							Order:
 							<select
 								id="order-select"
 								name="order"
@@ -100,7 +84,7 @@ export default function Items() {
 									disabled
 									hidden
 								>
-									Select your option
+									Order
 								</option>
 								<option value="asc">Ascendant</option>
 								<option value="desc">Descendant</option>
@@ -127,7 +111,7 @@ export default function Items() {
 								className="articleItem"
 							>
 								<article className="article-item">
-									<h3 className='article-title'>
+									<h3 className="article-title">
 										<Link to={`/articles/${article_id}`}>{title}</Link>
 									</h3>
 									<img
