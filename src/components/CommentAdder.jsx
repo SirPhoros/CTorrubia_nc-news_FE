@@ -16,7 +16,8 @@ export default function CommentAdder({ setComments, id }) {
 			setComments((currComments) => {
 				return [newCommentFromApi, ...currComments]
 			})
-			return setPostMsg('Comment added successfully')
+			setPostMsg('Comment added successfully')
+			setTimeout(() => setPostMsg(''), 2000)
 		})
 	}
 

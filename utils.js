@@ -27,7 +27,7 @@ export function getCommentsFromArticle({ article_id }) {
 		.catch((err) => console.log(err))
 }
 export const postComment = (newCommentText, { article_id }) => {
-		const postBody = {
+	const postBody = {
 		username: 'jessjelly',
 		body: newCommentText,
 	}
@@ -46,6 +46,13 @@ export function voteArticle(article_id, num) {
 		({ data }) => {
 			return data.article
 		}
+	)
+}
+
+
+export function deteleComment(comment_id) {
+	return NewsApi.delete(`/comments/${comment_id}`).catch((err) =>
+		console.log(err)
 	)
 }
 

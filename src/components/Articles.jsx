@@ -4,7 +4,6 @@ import { Link, useSearchParams } from 'react-router-dom'
 
 export default function Items() {
 	const [currArticles, setCurrArticles] = useState([])
-
 	const [isLoading, setIsLoading] = useState(true)
 	const [searchParams] = useSearchParams()
 	const topic = searchParams.get('topic')
