@@ -65,7 +65,7 @@ export default function SingleArticle() {
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
-		<main className="articleItem">
+		<main className="articleList">
 			{article.map(
 				({
 					title,
