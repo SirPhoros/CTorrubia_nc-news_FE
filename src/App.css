@@ -115,6 +115,11 @@ p {
 	grid-column: span 2;
 }
 
+.single-article {
+	margin: 0 0 20px 0;
+	border: 2px solid rgb(255, 83, 83);
+}
+
 .articleItem:nth-last-child(1):nth-child(odd) {
 	grid-column: 2 / span 2;
 }
@@ -140,7 +145,7 @@ img {
 
 .user-card img {
 	width: 150px;
-	/* height: 150px; */
+	height: 150px;
 }
 
 ul {

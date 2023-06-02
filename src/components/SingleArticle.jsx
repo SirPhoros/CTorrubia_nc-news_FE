@@ -94,7 +94,7 @@ export default function SingleArticle() {
 	return error ? (
 		<ErrorPage error={error} />
 	) : (
-		<main className="articleItem">
+		<main className="single-item">
 			{article.map(({ title, author, body, topic, votes, article_img_url }) => {
 				return (
 					<article key={article_id}>
@@ -119,7 +119,7 @@ export default function SingleArticle() {
 								className="downVote"
 								onClick={() => handleDownVote(article_id)}
 							>
-									{!downClicked ? '🧊' : 'Dislike'}
+								{!downClicked ? '🧊' : 'Dislike'}
 							</button>
 						</section>
 					</article>
