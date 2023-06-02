@@ -16,15 +16,15 @@ export default function Topics() {
 	if (isLoading) return <p>Loading Page... wait patiently </p>
 
 	return (
-		<div class="dropdown">
-			<button class="dropbtn">
+		<div className="dropdown">
+			<button className="dropbtn">
 				Topics{' '}
 				<i
-					class="fa fa-caret-down"
+					className="fa fa-caret-down"
 					aria-hidden="true"
 				></i>
 			</button>
-			<div class="dropdown-content">
+			<div className="dropdown-content">
 				{topics.map(({ slug }) => {
 					return (
 						<li key={slug}>
