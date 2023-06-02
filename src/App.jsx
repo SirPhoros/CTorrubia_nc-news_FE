@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage'
 import { UserContext } from './contexts/UserContext'
 import Users from './components/Users'
 import { useState } from 'react'
+import Footer from './components/Footer'
 
 function App() {
 	const [user, setUser] = useState({
@@ -52,6 +53,7 @@ function App() {
 							element={<Users />}
 						/>
 					</Routes>
+					<Footer />
 				</>
 			</UserContext.Provider>
 		</BrowserRouter>
