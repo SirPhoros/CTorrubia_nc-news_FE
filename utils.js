@@ -24,9 +24,9 @@ export function getCommentsFromArticle({ article_id }) {
 		})
 		.catch((err) => console.log(err))
 }
-export const postComment = (newCommentText, { article_id }) => {
+export const postComment = (newCommentText, { article_id }, username) => {
 	const postBody = {
-		username: 'jessjelly',
+		username: username,
 		body: newCommentText,
 	}
 

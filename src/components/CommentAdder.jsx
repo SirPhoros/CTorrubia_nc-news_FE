@@ -25,7 +25,7 @@ export default function CommentAdder({ setComments, id }) {
 		if (newComment.length === 0) {
 			return setPostMsg('Your comment cannot be empty!')
 		}
-		postComment(newComment, id)
+		postComment(newComment, id, username)
 			.then((newCommentFromApi) => {
 				setNewComment('')
 				setComments((currComments) => {

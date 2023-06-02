@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import moment from 'moment'
+import { UserContext } from '../contexts/UserContext'
 import { deteleComment, getCommentsFromArticle } from '../../utils'
 import CommentAdder from './CommentAdder'
 
 export default function Comments(id) {
+	const {
+		user: { username },
+	} = useContext(UserContext)
 	const [comments, setComments] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [isDeleting, setIsDeleting] = useState(false)
 	const [deletedCommentId, setDeletedCommentId] = useState(null)
-
-	const username = 'jessjelly'
 
 	function handleDelete(comment_id) {
 		setIsDeleting(true)
