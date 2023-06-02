@@ -8,7 +8,7 @@ The front end application was constructed using _React_.
 
 The database used was _PSQL_, and interactions have been carried out using _node-postgres_.
 
-> A live version can be accessed here: https://nc-news-soloproject-be.onrender.com/
+> A live version can be accessed here: https://thehive-news.netlify.app/articles
 
 Written by [Cristóbal G. Torrubia](https://github.com/SirPhoros). Latest version 1.0.0 (02 Jun 2023).
 
@@ -97,7 +97,7 @@ As part of the bootcamp requirements the front end application had to satisfy th
 
 The following link will take you to the hosted version of this project:
 
-App[link to app]
+[The Hive - Front End Project](https://thehive-news.netlify.app/articles)
 
 The following links will take you to the back end API, and back end repo:
 
