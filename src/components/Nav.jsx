@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContext'
 import { useContext } from 'react'
+import Topics from './Topics'
 
 export default function Nav() {
 	const {
@@ -10,7 +11,7 @@ export default function Nav() {
 		<nav className="nav">
 			<Link to="/">Home </Link>
 			<Link to="/articles">Articles </Link>
-			<Link to="/topics">Topics </Link>
+			<Topics />
 
 			<section className="profile">
 				Welcome: <Link to="/users">{username} </Link>{' '}

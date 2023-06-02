@@ -16,9 +16,15 @@ export default function Topics() {
 	if (isLoading) return <p className="loading-msg">Loading Page... wait patiently </p>
 
 	return (
-		<main>
-			<h2>Topics: </h2>
-			<ul>
+		<div class="dropdown">
+			<button class="dropbtn">
+				Topics{' '}
+				<i
+					class="fa fa-caret-down"
+					aria-hidden="true"
+				></i>
+			</button>
+			<div class="dropdown-content">
 				{topics.map(({ slug }) => {
 					return (
 						<li key={slug}>
@@ -30,7 +36,7 @@ export default function Topics() {
 						</li>
 					)
 				})}
-			</ul>
-		</main>
+			</div>
+		</div>
 	)
 }
