@@ -14,7 +14,7 @@ export default function Users() {
 	}, [])
 
 	return (
-		<>
+		<main>
 			<h2>Users</h2>
 			<ul className="User-list">
 				{users.map((user) => {
@@ -33,6 +33,6 @@ export default function Users() {
 					)
 				})}
 			</ul>
-		</>
+		</main>
 	)
 }

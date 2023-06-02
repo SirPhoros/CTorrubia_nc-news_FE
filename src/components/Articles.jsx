@@ -95,7 +95,7 @@ export default function Items() {
 								>
 									Sort
 								</option>
-								<option value="created_at">Date</option>
+								<option value="created_at">Date (default)</option>
 								<option value="comment_count">Comment count</option>
 								<option value="votes">Votes</option>
 							</select>
@@ -115,8 +115,8 @@ export default function Items() {
 								>
 									Order
 								</option>
-								<option value="asc">Ascendant</option>
-								<option value="desc">Descendant</option>
+								<option value="asc">Ascending</option>
+								<option value="desc">Descending (default)</option>
 							</select>
 						</label>
 						<label htmlFor="limit">

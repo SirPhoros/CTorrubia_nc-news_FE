@@ -1,8 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 export default function Pagination({ itemCount, limit }) {
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [page, setPage] = useState(1)
 	const pages = Array.from(
 		{ length: Math.ceil(itemCount / limit) },
 		(_, i) => i + 1
@@ -11,14 +12,14 @@ export default function Pagination({ itemCount, limit }) {
 	useEffect(() => {}, [searchParams, limit])
 
 	return pages.length === 1 ? (
-		<>
-			There are: {itemCount} elements, the limit is: {limit}
-		</>
+		<p>
+			There are: {itemCount} elements. Showing {limit} elements per page.
+		</p>
 	) : (
 		<section>
 			<p>
-				There are: {itemCount} elements, the limit is: {limit}, and there are{' '}
-				{pages.length} pages;
+				There are: {itemCount} elements. Showing {limit} elements per page. You
+				are in {page}/{pages.length}
 			</p>
 			{pages.map((page) => {
 				return (
@@ -27,6 +28,7 @@ export default function Pagination({ itemCount, limit }) {
 						disabled={page === pageValue}
 						value={page}
 						onClick={(e) => {
+							setPage(page)
 							const newParams = {
 								sort_by: searchParams.get('sort_by'),
 								order: searchParams.get('order'),

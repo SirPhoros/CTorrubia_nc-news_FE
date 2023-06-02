@@ -56,17 +56,18 @@ nav {
 	height: 60px;
 	width: 100%;
 	align-items: center;
-	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+	box-shadow: 0 2px 2px 2px #0909093b;
 }
 
 a {
-	color: white;
+	color: #ffffff;
 }
 
 a:hover {
-	color: rgb(102, 63, 0);
+	color: #663f00;
 }
 
+footer a:hover,
 nav a:hover {
 	color: #f1bb00;
 }
@@ -90,7 +91,9 @@ p {
 }
 
 .articlesList {
-	border: 2px solid red;
+	background-color: rgb(65, 65, 65);
+	color: white;
+	border: 2px solid rgba(255, 0, 0, 0);
 }
 
 .commentsSection {
@@ -117,10 +120,6 @@ p {
 .single-article {
 	margin: 0 0 20px 0;
 	border: 2px solid rgb(255, 83, 83);
-}
-
-.articleItem:nth-last-child(1):nth-child(odd) {
-	grid-column: 2 / span 2;
 }
 
 .article-title {
@@ -179,12 +178,15 @@ nav {
 	height: 60px;
 	width: 100%;
 	align-items: center;
-	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.711);
 }
 
-button {
-	background-color: black;
-	color: white;
+button,
+button a {
+	font-family: 'Signika Negative', 'Signika Negative-fallback', 'Open Sans',
+		'Open Sans-fallback', system-ui, sans-serif;
+	font-weight: 700;
+	color: #663f00;
 }
 
 footer {
@@ -196,7 +198,7 @@ footer {
 	justify-content: center;
 	height: 40px;
 	width: 100%;
-	box-shadow: 0px -2px 2px 2px rgba(9, 9, 9, 0.23);
+	box-shadow: 0px -2px 2px 2px rgb(9, 9, 9);
 }
 
 footer p {
