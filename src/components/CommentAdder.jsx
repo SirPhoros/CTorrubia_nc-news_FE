@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { postComment } from '../../utils'
-import { useFetcher } from 'react-router-dom'
+import { UserContext } from '../contexts/UserContext'
+import { Link } from 'react-router-dom'
 
 export default function CommentAdder({ setComments, id }) {
 	const [newComment, setNewComment] = useState('')
 	const [postMsg, setPostMsg] = useState('')
+	const {
+		user: { username },
+	} = useContext(UserContext)
+	if (username === 'Guest') {
+		return (
+			<>
+				<p>Please, login to post a comment: </p>
+				<button>
+					<Link to="/users">Log in</Link>
+				</button>
+			</>
+		)
+	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
