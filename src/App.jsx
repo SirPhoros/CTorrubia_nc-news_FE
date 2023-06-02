@@ -7,11 +7,18 @@ import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import Topics from './components/Topics'
 import ErrorPage from './components/ErrorPage'
+import { UserContext } from './contexts/UserContext'
+import Users from './components/Users'
+import { useState } from 'react'
 
 function App() {
+	const [user, setUser] = useState({
+		username: 'Guest',
+		avatar_url: '',
+	})
 	return (
-		<>
-			<BrowserRouter>
+		<BrowserRouter>
+			<UserContext.Provider value={{ user, setUser }}>
 				<>
 					<Header />
 					<Nav />
@@ -40,10 +47,14 @@ function App() {
 							path="/articles/topics/:topic"
 							element={<Articles />}
 						/>
+						<Route
+							path="/users"
+							element={<Users />}
+						/>
 					</Routes>
 				</>
-			</BrowserRouter>
-		</>
+			</UserContext.Provider>
+		</BrowserRouter>
 	)
 }
 
