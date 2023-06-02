@@ -30,8 +30,12 @@ export default function Comments(id) {
 		})
 	}, [isDeleting])
 
-	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
-	if (comments.length === 0) return <p>No comments yet</p>
+	if (isLoading)
+		return (
+			<p className="loading-msg">Loading Comments Section... wait patiently </p>
+		)
+	if (comments.length === 0)
+		return <p className="loading-msg">No comments yet</p>
 
 	return (
 		<section className="Comments">
@@ -48,10 +52,14 @@ export default function Comments(id) {
 							className="comment"
 						>
 							<article>
-								<p>{author} commmented on... </p>
-								<p>{moment(created_at).fromNow()} </p>
-								<p>"{body}"</p>
-								<p>votes: {votes}</p>
+								<p>
+									{author} commmented {moment(created_at).fromNow()}:{' '}
+								</p>
+								<p>
+									{' '}
+									{'>>'} "{body}"
+								</p>
+								{/* <p>votes: {votes}</p> */}
 								{author === username && comment_id === deletedCommentId ? (
 									<p className="prompt">Deleting comment... Please Wait. </p>
 								) : author === username && !isDeleting ? (

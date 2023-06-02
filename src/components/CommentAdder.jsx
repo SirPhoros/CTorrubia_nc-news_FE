@@ -43,22 +43,25 @@ export default function CommentAdder({ setComments, id }) {
 
 	return (
 		<>
-			<form
-				className="CommentAdder"
-				onSubmit={handleSubmit}
-			>
-				<label htmlFor="newComment">
-					Add a Comment: <br />
-				</label>
-				<textarea
-					id="newComment"
-					multiline="true"
-					value={newComment}
-					onChange={(e) => setNewComment(e.target.value)}
-				></textarea>
-				<button disabled={!newComment}>Add</button>
-			</form>
-			<p>{postMsg}</p>
+			<section className="commentAdder">
+				<form
+					className="CommentAdder"
+					onSubmit={handleSubmit}
+				>
+					<label htmlFor="newComment">
+						Add a Comment: <br />
+					</label>
+					<textarea
+						id="newComment"
+						multiline="true"
+						value={newComment}
+						onChange={(e) => setNewComment(e.target.value)}
+					></textarea>
+					<br></br>
+					<button disabled={!newComment}>Add</button>
+				</form>
+				<p>{postMsg}</p>
+			</section>
 		</>
 	)
 }
