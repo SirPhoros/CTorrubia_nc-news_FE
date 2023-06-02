@@ -108,7 +108,8 @@ export default function SingleArticle() {
 						</p>
 						<p>{body}</p>
 						<section className="voteBlock">
-							<p id="vote">Current votes: {votes}</p>
+							<p id="vote">votes: {votes}</p>
+							<br></br>
 							<button
 								className="upVote"
 								onClick={() => handleUpVote(article_id)}

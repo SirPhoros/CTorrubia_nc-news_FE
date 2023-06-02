@@ -8,15 +8,6 @@
 	font-weight: 700;
 }
 
-.header {
-	display: inline-block;
-}
-
-.logo {
-	width: auto;
-	height: 70px;
-}
-
 body {
 	background-color: #f1bb00;
 	margin: auto;
@@ -25,10 +16,7 @@ body {
 textarea {
 	width: 300px;
 	height: 150px;
-}
-
-.commentAdder {
-	display: block;
+	border-radius: 25px;
 }
 
 legend {
@@ -38,9 +26,10 @@ legend {
 main {
 	text-align: center;
 	margin: auto;
-	width: 75%;
+	/* This will create the frame around the article. It may conflic though with the accesibility */
+	width: 95%;
 	min-height: 70vh;
-	overflow: overflow;
+	overflow: auto;
 	background-color: #bbb;
 	padding: 10px 5px;
 	border: 2px solid #bbb;
@@ -48,25 +37,52 @@ main {
 
 h1 {
 	font-weight: 900;
-	padding: 3rem 0 1rem 0;
+	padding: 2rem 0 1rem 0;
 }
 
 a {
 	text-decoration: none;
+	color: #ffffff;
 }
 
-ul {
+a:hover {
+	color: #663f00;
+}
+
+footer a:hover,
+nav a:hover {
+	color: #f1bb00;
+}
+
+/* ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-}
-
+} */
+/* 
 li {
 	display: inline-block;
 	margin: 0 10px;
 	text-align: center;
+} */
+
+nav {
+	font-weight: 700;
+	background-color: black;
+	color: white;
+	border: solid 1px black;
+	position: sticky;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.5rem 0rem;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+	box-shadow: 0 2px 2px 2px #0909093b;
 }
 
+/* Do no touch, it belongs to the drop-down menu */
 .dropdown {
 	float: left;
 	overflow: hidden;
@@ -108,45 +124,21 @@ li {
 }
 
 .dropdown-content a:hover {
-	color:#f1bb00
+	color: #f1bb00;
 }
 
 .dropdown:hover .dropdown-content {
 	display: block;
 }
-nav {
-	font-weight: 700;
-	background-color: black;
-	color: white;
-	border: solid 1px black;
-	position: sticky;
-	display: flex;
-	justify-content: space-evenly;
-	padding: 0.5rem 0rem;
-	top: 0;
-	height: 60px;
-	width: 100%;
-	align-items: center;
-	box-shadow: 0 2px 2px 2px #0909093b;
-}
 
-a {
-	color: #ffffff;
-}
-
-a:hover {
-	color: #663f00;
-}
-
-footer a:hover,
-nav a:hover {
-	color: #f1bb00;
-}
+/* End of Dropdown */
 
 p {
 	margin: 2% 5% 0% 5%;
 	text-align: justify;
 }
+
+/* Vote */
 
 .voteBlock {
 	margin-top: 50px;
@@ -161,12 +153,16 @@ p {
 	margin-left: 5px;
 }
 
+/* Articles */
+
 .articlesList {
 	background-color: #bbb;
 	color: white;
 	border: 2px solid rgba(255, 0, 0, 0);
 }
 
+/* Comment
+ */
 .commentsSection {
 	background-color: #bbb;
 	padding: 20px;
@@ -175,46 +171,58 @@ p {
 }
 
 .comment {
+	width: 100%;
 	background-color: #bbb;
-	margin: 20px 0 20px 0;
+	margin: 20px 0 10px 0;
 	border: 2px dotted purple;
+	padding-bottom: 1%;
 }
 
 .foot-article {
-	font-size: xx-small;
+	font-size: small;
 }
 
 .articleItem {
-	background-color: black;
-	box-shadow: 0px 0px 5px 5px black;
-	padding: 20px;
-	margin: 0 0 20px 0;
+	background-color: rgb(37, 36, 36);
+	box-shadow: 0px 0px 5px 2px black;
+	padding: 10px 0px 10px 0px;
+	margin: 20px;
 	border: 2px solid blue;
-	grid-column: span 2;
 }
 
-.single-article {
-	background-color: #bbb;
+/* .single-article {
+	background-color: #5d1a1a;
 	margin: 0 0 20px 0;
 	border: 2px solid rgb(255, 83, 83);
-}
+} */
 
 .article-title {
 	font-size: small;
 }
 
 .article-list {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 20px;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin: 20px;
 	padding: 20px;
-	justify-items: center;
 }
 
-img {
-	width: 100%;
-	max-width: 400px;
+.article-list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.article-list li {
+	width: 300px;
+	margin: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.article-list li img {
+	max-width: 100%;
 	height: auto;
 }
 
@@ -223,21 +231,11 @@ img {
 	height: 150px;
 }
 
-ul {
-	list-style-type: none;
-	text-align: center;
-	padding: 0%;
-}
-li {
-	display: inline-block;
-	margin: 0 10px;
-	text-align: center;
-}
-
 fieldset {
 	font-weight: 700;
 	display: flex;
 	background-color: #d5d5d5;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	width: auto;
 	margin: 0 0 10px 0;
@@ -249,6 +247,7 @@ nav {
 	color: white;
 	border: solid 1px black;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	padding: 0.5rem 0rem;
 	top: 0;

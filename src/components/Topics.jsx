@@ -13,7 +13,8 @@ export default function Topics() {
 		})
 	}, [])
 
-	if (isLoading) return <p className="loading-msg">Loading Page... wait patiently </p>
+	if (isLoading)
+		return <p className="loading-msg">Loading Page... wait patiently </p>
 
 	return (
 		<div className="dropdown">
@@ -27,13 +28,11 @@ export default function Topics() {
 			<div className="dropdown-content">
 				{topics.map(({ slug }) => {
 					return (
-						<li key={slug}>
+						<p key={slug}>
 							<Link to={`/articles/topics/${slug}`}>
 								{slug.charAt(0).toUpperCase() + slug.slice(1)}
-								<br />
-								<br />
 							</Link>
-						</li>
+						</p>
 					)
 				})}
 			</div>

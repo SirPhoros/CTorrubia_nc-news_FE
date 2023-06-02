@@ -57,6 +57,7 @@ export default function CommentAdder({ setComments, id }) {
 						value={newComment}
 						onChange={(e) => setNewComment(e.target.value)}
 					></textarea>
+					<br></br>
 					<button disabled={!newComment}>Add</button>
 				</form>
 				<p>{postMsg}</p>
