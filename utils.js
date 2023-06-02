@@ -60,3 +60,11 @@ export function getTopics() {
 		})
 		.catch((err) => console.log(err))
 }
+
+export function getUsers() {
+	return NewsApi.get(`/users`)
+		.then((res) => {
+			return res.data
+		})
+		.catch((err) => console.log(err))
+}
