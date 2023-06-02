@@ -7,7 +7,8 @@ export default function Footer() {
 				A React project by{' '}
 				<Link to={'https://github.com/SirPhoros/CTorrubia_nc-news_FE'}>
 					Cristóbal Gutiérrez Torrubia
-				</Link>
+				</Link>{' '}
+				© 2023
 			</p>
 		</footer>
 	)
