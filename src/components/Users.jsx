@@ -4,14 +4,19 @@ import { useContext } from 'react'
 import { UserContext } from '../contexts/UserContext'
 
 export default function Users() {
+	const [isLoading, setIsLoading] = useState(true)
 	const [users, setUsers] = useState([])
 	const { setUser } = useContext(UserContext)
 
 	useEffect(() => {
 		getUsers().then(({ users }) => {
 			setUsers(users)
+			setIsLoading(false)
 		})
 	}, [])
+
+	if (isLoading)
+		return <p className="loading-msg">Loading Page... wait patiently </p>
 
 	return (
 		<main>

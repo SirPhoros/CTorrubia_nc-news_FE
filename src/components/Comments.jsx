@@ -28,8 +28,8 @@ export default function Comments(id) {
 		})
 	}, [isDeleting])
 
-	if (isLoading) return <p>Loading Comments Section... wait patiently </p>
-	if (comments.length === 0) return <p>No comments yet</p>
+	if (isLoading) return <p className="loading-msg">Loading Comments Section... wait patiently </p>
+	if (comments.length === 0) return <p className="loading-msg">No comments yet</p>
 
 	return (
 		<section className="Comments">

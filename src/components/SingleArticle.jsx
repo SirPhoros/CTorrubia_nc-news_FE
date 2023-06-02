@@ -89,7 +89,7 @@ export default function SingleArticle() {
 		})
 	}
 
-	if (isLoading) return <p>Loading Page... wait patiently </p>
+	if (isLoading) return <p className="loading-msg">Loading Page... wait patiently </p>
 
 	return error ? (
 		<ErrorPage error={error} />

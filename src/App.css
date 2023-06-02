@@ -7,9 +7,32 @@
 	line-height: 1.5;
 	font-weight: 700;
 }
+
+.header {
+	display: inline-block;
+}
+
+.logo {
+	width: auto;
+	height: 70px;
+}
+
 body {
 	background-color: #f1bb00;
 	margin: auto;
+}
+
+textarea {
+	width: 300px;
+	height: 150px;
+}
+
+.commentAdder {
+	display: block;
+}
+
+legend {
+	color: black;
 }
 
 main {
@@ -18,6 +41,7 @@ main {
 	width: 75%;
 	min-height: 70vh;
 	overflow: overflow;
+	background-color: #bbb;
 	padding: 10px 5px;
 	border: 2px solid #bbb;
 }
@@ -91,18 +115,20 @@ p {
 }
 
 .articlesList {
-	background-color: rgb(65, 65, 65);
+	background-color: #bbb;
 	color: white;
 	border: 2px solid rgba(255, 0, 0, 0);
 }
 
 .commentsSection {
+	background-color: #bbb;
 	padding: 20px;
 	border: 2px solid salmon;
 	margin: 20px;
 }
 
 .comment {
+	background-color: #bbb;
 	margin: 20px 0 20px 0;
 	border: 2px dotted purple;
 }
@@ -112,18 +138,22 @@ p {
 }
 
 .articleItem {
+	background-color: black;
+	box-shadow: 0px 0px 5px 5px black;
+	padding: 20px;
 	margin: 0 0 20px 0;
 	border: 2px solid blue;
 	grid-column: span 2;
 }
 
 .single-article {
+	background-color: #bbb;
 	margin: 0 0 20px 0;
 	border: 2px solid rgb(255, 83, 83);
 }
 
 .article-title {
-	font-size: xx-small;
+	font-size: small;
 }
 
 .article-list {

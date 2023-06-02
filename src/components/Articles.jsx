@@ -69,7 +69,8 @@ export default function Items() {
 			})
 	}, [topic, sortBy, order, limit, p])
 
-	if (isLoading) return <p>Loading Page... wait patiently </p>
+	if (isLoading)
+		return <p className="loading-msg">Loading Page... wait patiently </p>
 
 	return error ? (
 		<ErrorPage error={error} />
@@ -163,26 +164,29 @@ export default function Items() {
 								className="articleItem"
 							>
 								<article className="article-item">
-									<h3 className="article-title">
-										<Link to={`/articles/${article_id}`}>{title}</Link>
-									</h3>
-									<img
-										src={article_img_url}
-										alt={title}
-									/>
+									
+									<Link to={`/articles/${article_id}`}>
+										<h3 className="article-title">
+											{title}
+										</h3>
+										<img
+											src={article_img_url}
+											alt={title}
+										/>
 
-									<section className="foot-article">
-										<p>
-											on:{' '}
-											<Link to={`/articles/topics/${topic}`}>
-												{topic.charAt(0).toUpperCase() + topic.slice(1)}
-											</Link>{' '}
-											<br />
-											Posted by {author} on{' '}
-											{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}{' '}
-											Comments: {comment_count} Votes: {votes}
-										</p>
-									</section>
+										<section className="foot-article">
+											<p>
+												on:{' '}
+												<Link to={`/articles/topics/${topic}`}>
+													{topic.charAt(0).toUpperCase() + topic.slice(1)}
+												</Link>{' '}
+												<br />
+												Posted by {author} on{' '}
+												{moment(created_at).format(`DD/MM/YY [at] HH:mm`)}{' '}
+												Comments: {comment_count} Votes: {votes}
+											</p>
+										</section>
+									</Link>
 								</article>
 							</li>
 						)
