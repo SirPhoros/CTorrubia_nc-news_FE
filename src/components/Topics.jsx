@@ -14,7 +14,7 @@ export default function Topics() {
 	}, [])
 
 	if (isLoading)
-		return <p className="loading-msg">Loading Page... wait patiently </p>
+		return <p className="loading-msg">Loading Topics...</p>
 
 	return (
 		<div className="dropdown">

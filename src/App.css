@@ -40,6 +40,10 @@ h1 {
 	padding: 2rem 0 1rem 0;
 }
 
+h2 {
+	color: black;
+}
+
 a {
 	text-decoration: none;
 	color: #ffffff;
@@ -59,12 +63,12 @@ nav a:hover {
 	padding: 0;
 	margin: 0;
 } */
-/* 
+
 li {
 	display: inline-block;
 	margin: 0 10px;
 	text-align: center;
-} */
+}
 
 nav {
 	font-weight: 700;
@@ -97,11 +101,6 @@ nav {
 	background-color: inherit;
 	font-family: inherit;
 	margin: 0;
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-	background-color: red;
 }
 
 .dropdown-content {
@@ -164,18 +163,23 @@ p {
 /* Comment
  */
 .commentsSection {
-	background-color: #bbb;
+	background-color: #545454;
 	padding: 20px;
-	border: 2px solid salmon;
+	box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.391);
+	/* border: 2px solid salmon; */
 	margin: 20px;
+	border-radius: 15px;
 }
 
 .comment {
 	width: 100%;
-	background-color: #bbb;
+	background-color: #f1bb00;
 	margin: 20px 0 10px 0;
-	border: 2px dotted purple;
+	box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #663f00,
+		0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+	border: 2px dotted #663f00;
 	padding-bottom: 1%;
+	border-radius: 15px;
 }
 
 .foot-article {
@@ -184,10 +188,11 @@ p {
 
 .articleItem {
 	background-color: rgb(37, 36, 36);
-	box-shadow: 0px 0px 5px 2px black;
+	box-shadow: 0px 0px 10px 3px black;
 	padding: 10px 0px 10px 0px;
 	margin: 20px;
-	border: 2px solid blue;
+	/* border: 2px solid blue; */
+	border-radius: 5px;
 }
 
 /* .single-article {
